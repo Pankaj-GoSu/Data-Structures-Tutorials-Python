@@ -1,16 +1,19 @@
-# =========== Inserting item At Begining ====================
+#=========== Inserting/ Adding Elements At The End Of The Linked List ===============
 
 '''
-# For Inserting element in begining
-Step1- Create node. Means we make an object from Node class.
-Step2- new_node.ref = head
-Step3- head = new_node # we store object new_node in head.
-#Pint To Remeber is Object Cantain memory address where it store so when we give
-"head =new_node" head contain address of new node.
-# when we make a object from class Node it has already an address which is refernce of new created Node.
+# Method name : add_end => data as parameter
+
+For inserting Element at end .
+Step1- Create Node
+Step2- check liked list is empty or not if empty then we adding our first node.
+If Linked List is not Empty : 
+step1- Goto Last Node.
+
 
 '''
-#=========== Writing Program for it =============
+
+#========== Writing Code ==============
+
 
 class Node:
 
@@ -30,7 +33,7 @@ class LinkedList:
         else:
             n = self.head 
             while n is not None :
-                print(n.data)
+                print(n.data,"-->" , end =" ")
                 n = n.ref       
 
     def add_begin(self,data):
@@ -38,13 +41,25 @@ class LinkedList:
         new_node.ref = self.head
         self.head = new_node
 
+    def add_end(self,data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        
+        else:
+            n = self.head
+            while n.ref is not None :
+                n = n.ref
+
+            n.ref = new_node
+              
+        
 
 
 LL1 = LinkedList()
 LL1.add_begin(10)
 LL1.add_begin(20)
-
+LL1.add_end(100)
+LL1.add_end(30)
 LL1.print_LL()
-
-
 

@@ -41,7 +41,7 @@ class LinkedList:
     def __init__(self):
         self.head = None # it means we do not have any node because head is None(Null),It is a Empty Linked List.
 
-    def print_LL(self):
+    def print_LL(self):# Traversal Operation performed here
         if self.head is None :
             print("Linked List is empty!")
         else:
