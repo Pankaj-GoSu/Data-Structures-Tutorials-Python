@@ -119,8 +119,13 @@ class LinkedList:
         new_node = Node(data)
         i = 1
         n = self.head
+        
         while True:
-            if i == index - 1 :
+            if index == 1:
+                new_node.ref = n
+                self.head = new_node
+                break
+            elif i == index - 1 :
                 new_node.ref = n.ref 
                 n.ref = new_node
                 break
@@ -129,12 +134,13 @@ class LinkedList:
                 n = n.ref
     
     
-    def after_node(self,data,index):
+    def after_node(self,data,value):
+        ''' After which node value you want enter your new node'''
         new_node = Node(data)
         i = 1
         n = self.head
         while True :
-            if i == index:
+            if n.data == value:
                 new_node.ref = n.ref
                 n.ref = new_node
                 break
@@ -142,27 +148,40 @@ class LinkedList:
                 i += 1
                 n = n.ref
 
-    def before_node(self,data,index):
+    def before_node(self,data,value):
+        '''Before which node value you want enter your new node'''
         new_node = Node(data)
         i = 1
+        j = 1
         n = self.head
         while True :
-            if i == index-1:
-                new_node.ref = n.ref
-                n.ref = new_node
+            if n.data == value:
                 break
             else:
                 i += 1
                 n = n.ref
-
+        m = self.head
+        while True:
+            if i == 1 :
+                new_node.ref = m
+                self.head = new_node
+                break
+            elif j == i-1:
+                new_node.ref = m.ref
+                m.ref = new_node
+                break
+            else:
+                j += 1
+                m = m.ref
 
 LL1 = LinkedList()
 LL1.add_begin(10)
 LL1.add_begin(20)
-# LL1.in_Between_add(50,2)
-LL1.before_node(25,2)
-# LL1.after_node(15,2)
+# LL1.in_Between_add(50,1)
+# LL1.in_Between_add(60,2)
 LL1.add_end(100)
 LL1.add_end(30)
+LL1.after_node(15,100)
+LL1.before_node(25,20)
 LL1.print_LL()
 
