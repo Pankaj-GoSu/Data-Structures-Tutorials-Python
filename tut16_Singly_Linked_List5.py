@@ -139,13 +139,15 @@ class LinkedList:
                 break
             else:
                 n = n.ref
-                i += 1 
+                i += 1         
+        
         j = 1
         m = self.head
         while True:
-            if i == 1: # it means it is begin value of Linked List.
+            if i == 1:
                 self.del_begin()
-            elif j == i-1: # here we change reference of node which is before the given node to next node of given node 
+                break
+            elif j == i-1: # here we change reference of node which is before(m) the given node to next node of given node(n) 
                 m.ref = n.ref 
                 break   
             else:
@@ -162,11 +164,13 @@ LL1.add_begin(20)
 # LL1.in_Between_add(60,2)
 LL1.add_end(100)
 LL1.add_end(30)
-LL1.after_node(15,100) # enter 15 after value 100.
-LL1.before_node(25,20) # enter 25 before value 20.
+LL1.after_node(15,100) # enter or add 15 after value 100.
+LL1.before_node(25,20) # enter or add 25 before value 20.
 # LL1.del_begin()
 # LL1.del_end()
 LL1.del_by_value(25)
+LL1.del_by_value(20)
 LL1.print_LL()
+
 
 
