@@ -149,10 +149,12 @@ class Doubly_Linked_List():
             j = 1
             m = self.head
             while True:
+                if i == 1:
+                    self.del_begin()
+                    break
                 if j == i-1:
                     m.next = n.next
-                    n = m.next
-                    n = m.next
+                    n = n.next
                     n.prev = m
                     break
                 else:
@@ -182,6 +184,6 @@ DLL.add_before(50,5)
 DLL.add_after(735,1)
 DLL.del_end()
 DLL.del_begin()
-# DLL.del_by_value(10)
+DLL.del_by_value(10)
 DLL.print_DLL()
 DLL.print_reverse_DLL()
