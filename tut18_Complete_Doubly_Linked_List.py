@@ -21,9 +21,23 @@ class Doubly_Linked_List():
             n = self.head # giving address of head to n so that we can traverse linked list without changing head postion.
            
             while n is not None:
-                print(f"<--{n.data}-->",end = " ")
+                print(f"<--{n.data}-->",end = " " )
                 n = n.next
-    
+            print("\n")
+    # This function print reverse of linked list so that we verifiy doubly linked list store address of previous linked list.
+    def print_reverse_DLL(self):
+        if self.head is None :
+            print("Linked list is empty")
+
+        else:
+            n = self.head
+            while n.next is not None:
+                n = n.next
+            while n is not None:
+                print(f"<--{n.data}-->",end = " " )
+                n = n.prev
+
+
     # self.head is become object for Node class bcoz we assign Node class object to this.
     # and with the help of self.head we can access Complete Node (means Data , Prev address , Next address).
     def add_begin(self,data):
@@ -50,30 +64,33 @@ class Doubly_Linked_List():
             new_node.prev = n
 
     def add_before(self,data,value): 
-        '''This function add node before given given value'''
+        '''This function add node before given value'''
         new_node = Node(data)
         if self.head is None:
             print("Your Linked List is empty")
 
         else:
+
             n = self.head
             i =1
             while n.data != value: #here we find index of Node which contain that given value. 
                 n = n.next
                 i += 1
-            
-            n = self.head
+                
+            m = self.head
             j = 1
             while True: # we have index of that node whose value is given show we stop before that node and add new node
                 if j == i-1:
-                    new_node.next = n.next
-                    n.next = new_node
-                    new_node.prev = n
-                    n = n.next # here we go to next node means our desire node and assign new node value to its prev link.
+                    new_node.next = m.next
+                    n = m.next
                     n.prev = new_node
+                    m.next = new_node
+                    new_node.prev = m
+                    n = m.next # here we go to next node means our desire node and assign new node value to its prev link.
+                   
                     break
                 else:
-                    n = n.next
+                    m = m.next
                     j += 1
         
     def add_after(self,data,value):
@@ -85,16 +102,20 @@ class Doubly_Linked_List():
             while n.data != value:
                 n = n.next
             new_node.next = n.next
-            n.next = new_node
             new_node.prev = n
-            n = n.next
+            n.next = new_node
+            n = new_node.next
             n.prev = new_node
+            
+            
+            
 
     def del_begin(self):
         if self.head is None:
             print("What you want to delete your linked list already empty")
         else:
             self.head = self.head.next
+            self.head.prev = None
 
     def del_end(self):
         if self.head is None:
@@ -117,12 +138,35 @@ class Doubly_Linked_List():
             
 
     def del_by_value(self,value):
-        pass
+        if self.head is None :
+            print("Your Linked List Is Empty")
+        else:
+            n = self.head 
+            i = 1
+            while n.data != value:
+                n = n.next
+                i += 1
+            j = 1
+            m = self.head
+            while True:
+                if j == i-1:
+                    m.next = n.next
+                    n = m.next
+                    n = m.next
+                    n.prev = m
+                    break
+                else:
+                    m = m.next
+                    j +=1
+
+
+       
 
     def add_first_node(self,data): # This function for add First Node
         if self.head is None:
             new_node = Node(data)
             self.head = new_node
+            new_node.prev = None
         else:
             print("Your Linked List Is Not empty so it means Nodes are present\n\n So  we Can not add Your Given Node")
 
@@ -138,4 +182,6 @@ DLL.add_before(50,5)
 DLL.add_after(735,1)
 DLL.del_end()
 DLL.del_begin()
+# DLL.del_by_value(10)
 DLL.print_DLL()
+DLL.print_reverse_DLL()
