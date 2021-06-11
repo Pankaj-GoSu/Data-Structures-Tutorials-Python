@@ -76,7 +76,7 @@ class Circular_SLL:
         else:
             n = self.head
             i = 1
-            while n.data is not value:
+            while n.data is not value: # with this i am calculating index of given value element .
                 n = n.next
                 i += 1
             m = self.head
