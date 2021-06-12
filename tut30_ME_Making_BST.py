@@ -1,5 +1,6 @@
 #========== Trying To make complete binary tree with all operations ==========
 
+# =========== I will do it later ================
 
 class Node: # we make this class to create node of tree
 
@@ -50,7 +51,7 @@ class Binary_search_tree:
             if n.key == key : # if root node value  is same as key
                 print(f"Your {key} value is present in tree")
                 break
-            elif n.key > key : # if root node value greater then key value
+            elif key < n.key : # if root node value greater then key value
                 if n.left_child == None: # if given value which is less then node value then we go to left side and suppose left subtree does not exit it means key value not present
                     print(f"Your {key} value is not present in tree")
                     break
@@ -86,28 +87,40 @@ class Binary_search_tree:
                         n = n.left_child
 
 
+            # This is also for searching values
+    def search(self,key): # here i use recursive method 
+        n = self.pointer 
+        while True: #while loop is used for recursive operation
+            if n.key == key:
+                print(f"Your {key} value is present in tree")
+                break
+            elif key < n.key:
+                if n.left_child:
+                    n = n.left_child # from here it again start from while loop
+                else:
+                    print("Value Not found")
+                    break
+            elif key > n.key:
+                if n.right_child:
+                    n = n.right_child # from here it again start from while loop
+                else:
+                    print("Value Not found")
+                    break
+            else:
+                print("Value not found")
+                
+    
+    # def pre_order_print(self): # first root then left subtree then right subtree.
+    #     n = self.pointer 
+    #     while n.left_child is not None:
+    #         print(f"{n.key}")
+    #         n = n.left_child
+        
+    #     while n.right_child is not None:
+
+        
             
-            
 
-
-
-
-    # def print_BST(self): # Here i am writing logic for In-order traversal.
-    #     if self.pointer is None:
-    #         print("Your Binary Search Tree Is Empty")
-    #     else:
-    #         n = self.pointer
-           
-    #         for i in range(3):
-    #             if n.left_child == None and n.right_child == None:
-    #                 print(f"<--{n.key}-->" , end = " ")
-    #                 n = None
-    #             elif n.left_child == None:
-    #                 n = n.right_child
-    #             elif n.right_child == None:
-    #                 n = n.left_child
-    #             else :
-    #                  n = n.left_child
 
                
 
@@ -119,15 +132,15 @@ class Binary_search_tree:
 
 
 BST = Binary_search_tree()
-for i in range(100):
-    BST.insertion(i)
-# BST.insertion(15)
-# BST.insertion(3)
-# BST.insertion(2)
-# BST.insertion(5)
-# BST.insertion(4)
-# BST.insertion(1)
-# BST.insertion(7)
+# for i in range(100):
+#     BST.insertion(i)
+BST.insertion(15)
+BST.insertion(3)
+BST.insertion(2)
+BST.insertion(5)
+BST.insertion(4)
+BST.insertion(1)
+BST.insertion(7)
 # BST.insertion(13)
 # BST.insertion(20)
 # BST.insertion(50)
@@ -135,11 +148,18 @@ for i in range(100):
 # BST.insertion(1)
 # BST.insertion(72)
 # BST.insertion(17)
-BST.search_in_BST(25)
-BST.search_in_BST(12)
-BST.search_in_BST(0)
-BST.search_in_BST(72)
-BST.search_in_BST(10000)
+# BST.search_in_BST(25)
+# BST.search_in_BST(12)
+# BST.search_in_BST(0)
+# BST.search_in_BST(72)
+# BST.search_in_BST(10000)
+# BST.search(15)
+# BST.search(150)
+# BST.search(18)
+# BST.search(15)
+# BST.search(150000)
+# BST.search(99)
+BST.pre_order_print()
 
 # BST.print_BST()
 

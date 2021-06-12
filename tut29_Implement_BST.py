@@ -30,6 +30,24 @@ class Binary_Search_Tree:
             else:
                 self.rchild = Binary_Search_Tree(data)
 
+    def search(self,data):
+        if self.key == data:
+            print("Node is Found")
+            return
+        if data < self.key:
+            if self.lchild:
+                self.lchild.search(data)
+            else:
+                print(" Node is not found")
+        else:
+            if self.rchild:
+                self.rchild.search(data)
+            else:
+                print(" Node is not found")
+
+
+    def pre_order(self):
+        print(self.key)
 
 
 
