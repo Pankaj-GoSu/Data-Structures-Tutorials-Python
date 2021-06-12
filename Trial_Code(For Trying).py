@@ -140,3 +140,110 @@ LL1.add_end(100)
 LL1.add_end(30)
 LL1.print_LL()
 
+
+
+#========== Implementing Binary Search Tree =========
+
+
+# Here I implementing Binary search tree Using OOP of python.
+
+class Node: # we make this class to create node of tree
+
+    def __init__(self,key): # this function is a constructor of class Node.(key-->data)
+
+        self.key = key
+        self.left_child = None
+        self.right_child = None
+
+class Binary_search_tree:
+
+    def __init__(self): # this function is a constructor of class Binary_search_tree.
+
+        self.pointer = None
+    
+    def insertion(self,key):
+        
+        if self.pointer is None:
+
+            print("Tree is empty \n wait we are making Tree for you... \n \t \t Your Root Node is ready!")
+            new_node = Node(key)
+            self.pointer = new_node
+
+        else:
+            n = self.pointer # self.pointer is object of class Node so with this we can access any node .
+            new_node = Node(key)
+            if n.key == key :
+                print("Duplicate values are not allowed") 
+            
+            while True:
+                if n.key > key :
+                    if n.left_child is None:
+                        n.left_child = new_node
+                        break
+                    else:
+                        n = n.left_child
+                elif n.key < key :
+                    if n.right_child is None:
+                        n.right_child = new_node
+                        break
+                    else:
+                        n = n.right_child
+
+    def print_BST(self): # Here i am writing logic for In-order traversal.
+        if self.pointer is None:
+            print("Your Binary Search Tree Is Empty")
+        else:
+            n = self.pointer
+           
+            for i in range(3):
+                if n.left_child == None and n.right_child == None:
+                    print(f"<--{n.key}-->" , end = " ")
+                    n = None
+                elif n.left_child == None:
+                    n = n.right_child
+                elif n.right_child == None:
+                    n = n.left_child
+                else :
+                     n = n.left_child
+
+               
+
+                
+
+                #     print(f"{n.key}") # here i traverse level wise .
+                #     a = self.pointer
+                #     b = self.pointer
+                #     while True: 
+                #         a = n.left_child
+                #         if a is not None:
+                #             print(f"{a.key}", end = " ")
+                #         b = n.right_child
+                #         if b is not None:
+                #             print(f"{b.key}", end = " ")
+                #         if a.left_child is not None:
+                #             n = a.left_child
+                #             continue
+                #         elif b.left_child is not None: 
+                #             n = b.right_child
+                #             continue
+                #         else:
+                #             break
+
+
+                
+
+
+
+BST = Binary_search_tree()
+BST.insertion(5)
+BST.insertion(4)
+BST.insertion(8)
+# BST.insertion(7)
+# BST.insertion(9)
+# BST.insertion(12)
+BST.print_BST()
+
+
+
+
+
