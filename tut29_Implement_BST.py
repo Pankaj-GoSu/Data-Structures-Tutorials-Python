@@ -46,10 +46,42 @@ class Binary_Search_Tree:
                 print(" Node is not found")
 
 
-    def pre_order(self):
-        print(self.key)
+    def pre_order(self): # root , left , right.
+        print(self.key, end = " ")
+        if self.lchild:
+            self.lchild.pre_order()# it pause the execution and it execute self.lchild.pre_order()
+        if self.rchild:
+            self.rchild.pre_order() # it pause the execution and it execute self.rchild.pre_order()
+
+
+    def in_order(self): # left , root , right.
+        if self.lchild:
+            self.lchild.in_order()
+        print(self.key, end = " ")
+        if self.rchild:
+            self.rchild.in_order()
+
+    def post_order(self):
+        if self.lchild:
+            self.lchild.post_order()
+        if self.rchild:
+            self.rchild.post_order()
+        print(self.key, end = " ")
 
 
 
 root = Binary_Search_Tree(None)
-root = Binary_Search_Tree(10)
+# for i in range(100):
+#     root.insert(i)
+root.insert(2)
+root.insert(12)
+root.insert(4)
+root.insert(7)
+root.insert(9)
+root.insert(1)
+print()
+root.pre_order()
+print()
+root.in_order()
+print()
+root.post_order()
