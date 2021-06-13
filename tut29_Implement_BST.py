@@ -96,7 +96,20 @@ class Binary_Search_Tree:
         return self # it return to where it is call from here .
 
 
+    def max_key(self):
+        node = self
+        while node.rchild:
+            node = node.rchild
+        
+        print(f"max value is{node.key}")
 
+    def min_key(self):
+        node = self
+        while node.lchild:
+            node = node.lchild
+
+        print(f"min value is {node.key}")
+   
     def pre_order(self): # root , left , right.
         print(self.key, end = " ")
         if self.lchild:
@@ -128,12 +141,16 @@ def count(node):
 root = Binary_Search_Tree(None)
 # for i in range(100):
 #     root.insert(i)
-root.insert(2)
+root.insert(8)
 root.insert(12)
-root.insert(4)
+root.insert(5)
 root.insert(7)
 root.insert(9)
-root.insert(1)
+root.insert(132)
+root.insert(4)
+root.insert(3)
+root.insert(2)
+# root.insert()
 
 if count(root) > 1:
     root.delete(2,root.key)
@@ -146,4 +163,6 @@ root.in_order()
 print()
 root.post_order()
 print()
+root.max_key()
+root.min_key()
 
