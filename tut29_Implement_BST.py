@@ -52,6 +52,11 @@ class Binary_Search_Tree:
             return
         if data < self.key:
             if self.lchild:
+                # yaha hum self.lchild = self.lchild.delete(data,current)
+                # kar rahe h bcoz jo left side ka self.lchild h wo purana wala lchild h 
+                # means update nahi hua h phle right side ka update hoga aur agr wo koi 
+                # node delete krta h to wo return value dega like None wo value ko hum yaha pr
+                # old self.lchild m store kr rahe h jo use point kr raha tha jo delete kr dia h
                 self.lchild = self.lchild.delete(data,current)
             else:
                 print("Given node is not present in this tree")
