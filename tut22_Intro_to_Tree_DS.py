@@ -49,7 +49,7 @@ Degree: you can found out degree of tree or degree of a node.
 
 1- Degree of a Node : Total no. of childeren of Node is degree of that node.
 2- Degree of a Tree : It is the  highest Degree of Node among the all nodes.
-for calculating Degree of a tree first we have to calculate degree of each node and then max value is degree. 
+for calculating Degree of a tree first we have to calculate degree of each node and then max value is degree of tree. 
 # Degree of leaf node is 0.
 
 Level: In a tree each step from top to bottom is called as level of tree.the level count start from 0.
@@ -60,7 +60,7 @@ So here we can find level of tree.
 Height: Hieght we see from ground so it start from leaf nodes.
 1- Height of a node: total number of edges which lies on the longest path from any leaf node to a perticular node.
 
-2- Height of a tree: height of the root node.(it is calculated by any leaf node to root node by taking longest path)
+2- Height of a tree: total number of edges-> height of the root node.(it is calculated by any leaf node to root node by taking longest path)
 
 Height of leaf node is 0
 

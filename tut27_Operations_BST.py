@@ -53,7 +53,7 @@ step1 - BST -> Empty :can't delete print message.
 
                 To Traverse a non-empty BST in pre-order , the following operations are performed
                 recursively at each node.
-                1- visit the root node
+                1- visit the root node # print value when you visit if you traverse then no print
                 2- Traversing the left sub-tree and finally
                 3- traversing the right sub-tree
 
@@ -64,7 +64,7 @@ step1 - BST -> Empty :can't delete print message.
                 To Traverse a non-empty BST in in-order , the following operations are performed
                 recursively at each node.
                 1- Traversing the left sub-tree.
-                2- visit the root node and finally
+                2- visit the root node and finally # print value when you visit if you traverse then no print
                 3- traversing the right sub-tree
 
                 example : 10(left node), 30(root node), 50(right node)
@@ -76,7 +76,7 @@ step1 - BST -> Empty :can't delete print message.
                 recursively at each node.
                 1- Treversing the left sub-tree
                 2- Trversing the right sub-tree and finally
-                3- visit the root node
+                3- visit the root node # print value when you visit if you traverse then no print
 
                 example: 10(left node), 50(right node), 30(root node)
 
@@ -85,6 +85,6 @@ step1 - BST -> Empty :can't delete print message.
 
                 It start from level zero.
 
-
+# here visiting means printing.
         
 ''' 

@@ -12,7 +12,7 @@ it means each node have either 0 child 1 child or 2 child not more then 2 child 
 """
 Type of Binary Tree :
 1- Full Binary Tree
-2- complete Binar Tree
+2- complete Binary Tree
 3- Prefect Binary Tree
 4- Balanced Binary Tree
 5 - Pathalogical binary Tree
