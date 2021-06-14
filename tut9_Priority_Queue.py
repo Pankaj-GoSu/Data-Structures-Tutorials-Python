@@ -1,6 +1,6 @@
 #=========== Priority Queue =====================
 
-# Queue is linear data structure ehich work on FIFO methodology.
+# Queue is linear data structure which work on FIFO methodology.
 # Priority Queues are modified version of Queues in which 
 # each element is assocaited with a priority and it servecs a/c to priority.
 # In priority queue removal of element based on priority.
@@ -26,7 +26,7 @@ q.append(5) # user think out queue is q = [10,20,5]
 q.sort()   # But actual queue is q =[5,10,20] So here we say lowest value has high priority.
 print(q)
 
-q.pop(0)
+q.pop(0) # it pop 0 index value
 print(q) # lowest value element removed 
 
 # ====== Best way to implement priority Queue is using binary heap Data Structures ========
@@ -34,6 +34,7 @@ print(q) # lowest value element removed
 import queue
 
 q = queue.PriorityQueue() # creat a empty queue. q is object of class PriorityQueue.
+# here it take lowest value as high priority
 
 q.put(10)
 q.put(60)
