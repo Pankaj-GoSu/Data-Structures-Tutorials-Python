@@ -1,4 +1,4 @@
-#=========== Here We Implement Graph =============
+#=========== Here We Implement Graph Using Adjacency matrix =============
 
 #Here We Do:
 
@@ -6,7 +6,7 @@
 1-Function to add a node using adjacency matrix representation.
 2-Function to add an edge using adjadency matrix representation.
 
-3-Function to add a node using adjacency list representation
+3-Function to add a node using adjacency list representation.
 4-Function to add an edge using adjadency list representation.
 
 '''
@@ -66,8 +66,13 @@ print_in_matrix(adjacency_matrix_graph)
 
 def add_edge(v1,v2,cost): # it take edge as a arguments.
 
-    if v1 and v2 not in nodes:
-        print(" Node is not present")
+    # if v1 and v2 not in nodes:
+    #     print(" Node is not present")
+    if v1 not in nodes:
+        print(f"{v1} is Not present")
+    elif v2 not in nodes:
+        print(f"{v2} is Not present")
+    
     else:
             
         # for index,item in enumerate(nodes): # this for loop is for find index of given vertex/nodes.
@@ -98,6 +103,7 @@ add_edge("F","X",7) # here X is not present but i give X as a input so that i ch
 print(nodes)
 print(adjacency_matrix_graph)
 print_in_matrix(adjacency_matrix_graph)
+
 
 
 
