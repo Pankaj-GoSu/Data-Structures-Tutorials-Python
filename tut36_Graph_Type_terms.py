@@ -43,13 +43,13 @@ Based on graph contain cycle or not we have two type of graph:
     Cycle : Cycle is path in which first and last node need to be same and also all the
             other nodes need to be distinct.
         
---> Connecte Graph - In undirected , A graph is said to be connected if there is a path from any node to any other node.
+--> Connected Graph - In undirected , A graph is said to be connected if there is a path from any node to any other node.
 
 --> Strongly Connected Graph : In directed graph if there is a path from any node to any other node.
                 # here we have to take care of direction of graph it is such a way that we can reach 
                 from any node to any node.
     
---> Weakily connected Graph :In a directed, here we see graph as undirected graph and if we find it is connected graph
+--> Weakily connected Graph :In a directed graph, here we see graph as undirected graph and if we find it is connected graph
                     then we can say it is weakily connected graph.
 
 --> Degree of a Node : In a undirected graph number of edges connected to the node is the degree 
