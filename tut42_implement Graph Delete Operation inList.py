@@ -90,5 +90,5 @@ def delete_edge(v1,v2):
                         graph[v2].remove(j)
 
 
-delete_edge("C","B")
+delete_edge("C","D")
 print(graph)
