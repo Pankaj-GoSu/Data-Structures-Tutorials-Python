@@ -91,6 +91,18 @@ class Circular_SLL:
                 else:
                     j += 1
                     m = m.next
+    
+    def del_by_index(self,index):
+        i = 1
+        n = self.head
+        while True:
+            if i == index-1:
+                break
+            else:
+                n = n.next
+                i = i + 1 
+        n.next = n.next.next
+
 
     def print_CSLL(self): # This function is for traversal the Circular Linkedlist
         if self.head is None:
@@ -111,5 +123,6 @@ CSLL.add_end(4)
 CSLL.add_In_between(735,5)
 CSLL.del_begin()
 CSLL.del_end()
-CSLL.del_by_value(735)
+# CSLL.del_by_value(735)
+# CSLL.del_by_index(3)
 CSLL.print_CSLL()
