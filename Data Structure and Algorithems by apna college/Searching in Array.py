@@ -6,7 +6,7 @@
 array = []
 size = int(input("enter size of array\n"))
 
-for i in range(size):
+for i in range(size): # time complexity O(n^2)
     array_values = int(input("Enter values for array\n"))
     array.insert(0,array_values)
 
