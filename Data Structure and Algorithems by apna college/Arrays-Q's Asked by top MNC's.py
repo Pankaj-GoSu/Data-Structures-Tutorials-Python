@@ -24,3 +24,58 @@ while(j<len(a)):
     j = j + 1
 
 '''
+
+# Problem :
+
+'''
+Given an unsorted array A of Size of N od non-negative integers,find a continous subarray 
+which adds to a given numders S.
+
+Input:
+N = 5 , S = 12
+A= [1,2,3,7,5]
+
+Output: 2 4 
+Explanation: The sum of element from 2nd postion to 4th postion is 12.
+
+'''
+
+'''
+A = [1,2,3,7,5]
+sum_list = []
+S = 7
+sum = 0
+for i in range(len(A)):
+    for j in range(i,len(A)):
+        sum = sum + A[j]
+        sum_list.append(sum)
+    sum = 0
+print(sum_list)
+'''
+
+# Problem :
+
+'''
+Smallest Positive Missing Numbers :
+
+You are given an array of N integers including 0.The task is to find the smallest positive number 
+missing from the array.
+
+'''
+
+a = [0,-9,1,3,-4,5]
+
+i = 0
+j = max(a)
+while True:
+    if i <= j:
+        if i in a:
+            pass
+        else:
+            print(f"smallest positive number which is missing is {i}")
+            break
+        i = i + 1
+    else:
+        print("no number is missing")
+        break
+
