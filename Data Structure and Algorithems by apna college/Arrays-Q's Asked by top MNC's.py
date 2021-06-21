@@ -52,6 +52,39 @@ for i in range(len(A)):
     sum = 0
 print(sum_list)
 '''
+# a = [-1,4,7,2]
+
+# ========== Solution ==============
+
+a = [1,2,3,7,5]
+S = 17
+sub_array = []
+b = []
+k = 0
+while True:
+    if k < len(a):
+        for i in range(k,len(a)):
+            for j in range(k,i+1):
+                b.append(a[j])
+            sub_array.append(b)
+            b = []
+        k = k + 1
+    else:
+        break
+
+print(sub_array)
+sum = 0
+for i in range(len(sub_array)):
+    for j in range(len(sub_array[i])):
+        sum = sum + sub_array[i][j]
+    if sum == S:
+        x = sub_array[i]
+    sum = 0
+
+st = a.index(x[0])
+en = a.index(x[-1])
+print(f"Starting index is : {st} end index is : {en}")
+print(x)
 
 # Problem :
 
@@ -63,6 +96,7 @@ missing from the array.
 
 '''
 
+'''
 a = [0,-9,1,3,-4,5]
 
 i = 0
@@ -78,4 +112,4 @@ while True:
     else:
         print("no number is missing")
         break
-
+'''
