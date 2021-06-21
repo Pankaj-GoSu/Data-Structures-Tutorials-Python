@@ -142,13 +142,19 @@ Note : Note that the very first day could bea a record breaking days
 
 a = [1,2,0,7,2,0,2,2]
 
+
 count = 0
-j = 13 
-while(j<len(a)): # complexity is O(n)
-    if a[j-1] == max(a[:j]) and a[j-1]>a[j]:
-        count += 1
-    j = j + 1
-print(count)
+if len(a) == 1:
+        count = 1
+else:
+    a.append(0)    
+    j = 1 
+    while(j-1<len(a)-1): # complexity is O(n)
+        if a[j-1] == max(a[:j]) and a[j-1]>a[j]:
+            count += 1
+        j = j + 1
+print(a)
+print(f"Number of record breaking days is {count}")
 
 
             
