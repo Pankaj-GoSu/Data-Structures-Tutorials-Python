@@ -126,14 +126,14 @@ step-5 [8,12,19,23,45,51]
 # Insertion_Sort(array3)
 # print(f"Insertion sort result : {array3}")
 
-array3 = [12,45,23,51,19,8]
+# array3 = [12,45,23,51,19,8]
 
-def Insertion_sort(array):
-    i = 0
-    if len(array) == 1:
-        return array
-    while (i+1 < len(array)):
-        if array[i] > array[i+1]:
+# def Insertion_sort(array):
+#     i = 0
+#     if len(array) == 1:
+#         return array
+#     while (i+1 < len(array)):
+#         if array[i] > array[i+1]:
             
-        i = i+1
+#         i = i+1
 
