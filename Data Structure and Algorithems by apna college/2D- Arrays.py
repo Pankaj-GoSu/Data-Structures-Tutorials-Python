@@ -53,39 +53,34 @@ else:
 
 '''
 Spiral Order Matrix Traversal:
+OR
+Spiral Matrix Traversal :
 
 '''
-array_2d = [[1,2,3,],[4,5,6],[7,8,9]]
 
-row_start = 0
-row_end = 2
-column_start = 0
-column_end = 2
+# a = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+a =[[1,2,3],[4,5,6],[7,8,9],[11,12,13]]
 
-def Spiral_Traversal(array,row_start,row_end,column_start,column_end):
+top = 0
+down = 3
+left = 0
+right = 2
+while(top <= down and right >= left ):
+    #print top
+    for i in range(left,right+1):
+        print(a[top][i], end = " ")
+    top = top + 1
+    #print right
+    for j in range(top,down+1):
+        print(a[j][right], end = " ")
+    right = right - 1
+    #print down
+    for k in range(right,left-1,-1):
+        print(a[down][k], end = " ")
+    down = down - 1
+    #print left
+    for l in range(down,top-1,-1):
+        print(a[l][left], end = " ")
+    left = left + 1
 
-    if row_start == row_end == column_end == column_start:
-        print(array[row_start][row_end])
-        return
-    else:
-        for i in range(column_start,column_end+1):
-            print(array[row_start][i])
-        row_start = row_start + 1
-        for j in range(row_start,row_end+1):
-            print(array[j][column_end])
-        column_end = column_end - 1
-        for k in range(row_start,column_end+1):
-            print(array[row_end][column_end-k+1])
-        row_end = row_end - 1
-        for l in range(column_start,row_end+1):
-            print(array[row_end - l +1][column_start])
-        column_start = column_start + 1
-    
-    Spiral_Traversal(array,row_start,row_end,column_start,column_end)
-
-
-
-
-Spiral_Traversal(array_2d,0,2,0,2)
-        
 
