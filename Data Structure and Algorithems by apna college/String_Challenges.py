@@ -27,15 +27,34 @@ Form the biggest number from the numeric string:
 input -> "53214"
 output -> "54321"
 '''
-
-numstr = "53214"
+'''
+numstr = "05321104"
 largeno = ""
-a = 0
-for i in numstr:
-    if int(i) >= a:
-        largeno = largeno + i
-        numstr.replace(i,"")
-    print(numstr)
+a = []
 
+for i in numstr:
+    a.append(i)
     
+a.sort()
+for i in range(len(a)-1,-1,-1):
+    largeno = largeno + a[i] 
 print(largeno)
+
+'''
+
+# Problem :
+
+'''
+count how many time which charater occure
+
+'''
+
+string = "abcacbade"
+count = []
+alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+
+for i in alphabet:
+    count.append(string.count(i))
+
+print(alphabet[count.index(max(count))])
+
