@@ -85,6 +85,7 @@ Find the first and last occurence of a number in an array:
 2 first occure at index 1 and last occure at index 5
 '''
 
+'''
 a =[4,2,1,2,5,2,1,7]
 count_list = []
 count = 0
@@ -105,3 +106,25 @@ num = 2
 occurence(a,num,count)
 print(f"occurance of {num} is : start index {count_list[0]} and last index {count_list[-1]}")
 
+'''
+'''
+a = [4,2,1,2,5,2,1,7]
+
+num = 2
+count = 0
+def last_occur(a,i,num,count):
+
+    if len(a) == count:
+        return 
+    
+    if a[i] == num:
+        last_occur(a,i+1,num,count+1)
+        return count
+
+    
+        
+x = last_occur(a,0,num,count)
+print(x)
+
+
+'''
