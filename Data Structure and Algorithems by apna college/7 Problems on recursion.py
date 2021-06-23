@@ -133,3 +133,29 @@ x = "x"
 print(move_x(str,0 ,x))
 
 '''
+
+# Problem:
+
+'''
+Generate all substrings of a string:
+"ABC"  ==> {"",A,B,AB,C,,AC,BC,ABC}
+
+'''
+# here we do this by input ouput method.
+
+str = "ABC"
+out = ""
+
+def substrings(str,out,i):
+
+    if len(str)==i:
+        print(out)
+        return out
+    else:
+        op1 = out
+        op2 = out
+        op2 = op2 + str[i]
+        substrings(str,op1,i+1)
+        substrings(str,op2,i+1)
+        
+substrings(str,out,0)
