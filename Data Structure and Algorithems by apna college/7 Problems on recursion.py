@@ -5,7 +5,7 @@
 '''
 Reverse a string using recursion
 '''
-str ="imawsog jaknap"
+# str ="imawsog jaknap"
 
 '''
 def Reverse_str(str,i):
@@ -143,6 +143,7 @@ Generate all substrings of a string:
 '''
 # here we do this by input ouput method.
 
+'''
 str = "ABC"
 out = ""
 
@@ -159,3 +160,61 @@ def substrings(str,out,i):
         substrings(str,op2,i+1)
         
 substrings(str,out,0)
+'''
+
+#Problem :
+# To get Ascii Value we use ord("A")
+'''
+Generate substrings with ASCII number.
+'''
+
+'''
+string = "AB"
+out = ""
+
+a= ord(string[0])
+def substrings_ascii(string,out,i):
+
+    if len(string) == i:
+        print(out)
+        return
+    else:
+        op1 = out
+        a= ord(string[i])
+        op2 = out + str(a)
+        op3 = out + string[i]
+        substrings_ascii(string,op1,i+1)
+        substrings_ascii(string,op2,i+1)
+        substrings_ascii(string,op3,i+1)
+
+substrings_ascii(string,out,0)
+
+'''
+
+# Problem
+
+'''
+Print all possible words from phone digits
+'''
+
+
+list1 = ["","./","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"]
+
+ 
+a=list1[2]
+b=list1[7]
+
+def print_words(a,b,i):
+
+    if len(a) == i:
+        return
+    else:
+        for j in range(len(b)):
+            print(a[i]+b[j])
+        print_words(a,b,i+1)
+
+
+print_words(a,b,0)
+
+
+    
