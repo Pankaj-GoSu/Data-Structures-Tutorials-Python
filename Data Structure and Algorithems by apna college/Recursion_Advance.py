@@ -73,6 +73,7 @@ total_path = a/(b*c)
 print(total_path)
 '''
 
+'''
 def total_path(m,n):
     
     if n == 1 or m == 1:
@@ -81,3 +82,71 @@ def total_path(m,n):
         return total_path(m-1,n) + total_path(m,n-1)
 
 print(total_path(4,4))
+'''
+
+# Problem :
+
+'''
+Tiling problem :
+
+Given a "2*n" board and tiles of size "2*1" , count the number of ways to tile the given board 
+using these tiles.
+
+'''
+'''
+def titling(n):
+
+    if n == 1:
+        return 1
+    if n == 0:
+        return 0
+    else:
+        return  titling(n-1)  +  titling(n-2)
+
+print(titling(4))
+'''
+
+# Problem
+
+'''
+Find the number of ways in which n friends can remain single or can be paired up.
+'''
+'''
+# i do this by mathematically
+def friendspairing(n):
+
+    return n + (n/2)*(n-1) 
+
+print(friendspairing(3))
+
+'''
+
+#Probelm
+
+'''
+0-1 Knapsack Problem:
+
+let we have 3 items
+'''
+# done this problem with i/p and o/p method.
+wt = [10,20,30]
+value = [100,50,150]
+value_knapsack = []
+def knapsack(n,W,V,i):
+    
+    if n == i :
+        value_knapsack.append(V)
+        return
+    else:
+        W1 = W - 0
+        V1 = V + 0
+        knapsack(n,W1,V1,i+1)
+        if W >= wt[i]:
+            W2 = W - wt[i]
+            V2 = V + value[i] 
+            knapsack(n,W2,V2,i+1)
+        
+
+knapsack(3,50,0,0)
+print(value_knapsack)
+print(max(value_knapsack))
