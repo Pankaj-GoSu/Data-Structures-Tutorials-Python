@@ -1,12 +1,11 @@
-# ====== Reversing a Linked List ==========
+# ============= Detection and Removal of cycle in linked list ============
 
 '''
+Floyed's Algorithem
+OR
+Hare and Tottoise Algorithm
 
 '''
-
-
-
-
 
 class Node:
 
@@ -25,9 +24,11 @@ class Linked_list:
             print("Linked list is empty")
         else:
             n = self.head
+            count = 1
             while n != None:
                 print(f"{n.data}-->" , end =" ")
                 n = n.next
+                count = count + 1
             print("NULL",end =" ")
 
     def add_begin(self,data):
@@ -115,57 +116,58 @@ class Linked_list:
                 n.next = n.next.next
                 del temp
 
-    def reverse_LL_iterative(self): # it reverse our linked list 
-        # here we make 3 pointer,previous ,current and next.
-
-        previous = None
-        current = self.head
-        
-        while current != None:
-            next = current.next
-            current.next = previous
-            previous = current
-            current = next
-            
-        self.head = previous
-    
-    def reverse_LL_Recursive(self,n): # not working now i will make it work after some time
-
-        if n == None or n.next == None:
-            return 
+    def make_cycle(self,data,index):
+        if self.head is None:
+            print("empty ll")
         else:
-            new_head = self.reverse_LL_Recursive(n.next)
-            n.next.next = n
-            n.next = None
+            new_node = Node(data)
+            n = self.head
+            m = self.head
+            while n.next is not None:
+                n = n.next
+            n.next = new_node
+            count = 1
+            while count != index-1:
+                m = m.next
+                count = count +1
+            new_node.next = m.next
 
-            self.head =new_head
+    def detect_cycle(self):
+        slow = self.head
+        fast = self.head
 
-# ========= Reverse k nodes in a linked list ===============
+        while(fast!=None and fast.next !=None):
+            slow = slow.next
+            fast = fast.next.next
 
-    def reverse_K_nodes(self,head,k): # not completed
-        current = head
-        next = None
-        prev = None
-        count = 0
- 
-        # Reverse first k nodes of the linked list
-        while(current is not None and count < k):
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
-            count += 1
- 
-        # next is now a pointer to (k+1)th node
-        # recursively call for the list starting
-        # from current. And make rest of the list as
-        # next of first node
-        if next is not None:
-            head.next = self.reverse_K_nodes(current, k)
- 
-        # prev is new head of the input list
-        return prev
+            if (fast == slow):
+                return True
         
+        return False
+
+    def deletion_cycle(self):
+        slow = self.head
+        fast = self.head
+
+        while(fast!=None and fast.next!=None):
+            slow = slow.next
+            fast = fast.next.next
+
+            if fast == slow:
+                break
+        fast = self.head
+        while(fast.next != slow.next):
+            fast = fast.next
+            slow = slow.next
+        slow.next = None
+
+
+#=============== Remove Cycle From Linked List ====================
+'''
+Here we make fast or slow means we make one pointer to point head and then we move
+both pointer by 1-1 step and when both pointers next point to same then which pointer in cycle we
+make it to point to next
+'''
 
 
 LL = Linked_list()
@@ -174,7 +176,6 @@ LL.add_begin(5)
 LL.add_begin(7)
 LL.add_end(8)
 LL.add_end(9)
-LL.add_end(6)
 LL.add_inbetween(735,4)
 # LL.search_in_LL(5)
 # LL.delete_start()
@@ -183,8 +184,9 @@ LL.add_inbetween(735,4)
 # LL.delete_in_between(735)
 LL.print_LL()
 print()
-# LL.reverse_LL_iterative()
-
-# LL.reverse_LL_Recursive(LL.head)
-LL.head = LL.reverse_K_nodes(LL.head,2) # here we change head to starting previous value.
-LL.print_LL()
+# LL.make_cycle(11,3)
+LL.make_cycle(12,2)
+print(LL.detect_cycle())
+# LL.deletion_cycle()
+LL.deletion_cycle()
+LL.print_LL() 
