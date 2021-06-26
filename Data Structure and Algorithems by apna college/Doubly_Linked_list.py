@@ -97,8 +97,12 @@ class Doubly_LinkedList:
             else:
                 while n.next.data != value:
                     n = n.next
-                n.next.next.prev = n.next.prev
-                n.next = n.next.next
+                if n.next.next == None:
+                    n.next.prev = None
+                    n.next = None
+                else:    
+                    n.next.next.prev = n.next.prev
+                    n.next = n.next.next
 
 
 Dll = Doubly_LinkedList()
@@ -112,7 +116,8 @@ Dll.add_in_between(735,3)
 Dll.add_in_between(73,1)
 Dll.delete_begin()
 # Dll.delete_by_value(8)
-# Dll.delete_by_value(6)
+Dll.delete_by_value(9)
+Dll.delete_by_value(11)
 
 print("Forword is:")
 Dll.print_DLL_forward()
