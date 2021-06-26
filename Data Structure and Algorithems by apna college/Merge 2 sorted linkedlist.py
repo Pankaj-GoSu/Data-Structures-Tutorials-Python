@@ -1,6 +1,5 @@
-# ========= Here we solve Problems related to linked list ==========
+# ======= Merge 2 sorted linked lists ==========
 
-#========== Append last k nodes to start of linked list ==============
 
 class Node:
 
@@ -109,106 +108,72 @@ class Linked_list:
                 n.next = n.next.next
                 del temp
 
-    def append_k_nodes_at_start(self,k):
-        try:
-            n = self.head
-            m = self.head
-            count = 1
-            count_k = 1
-            while n.next is not None :
-                n = n.next
-                count_k = count_k + 1
-            while count != count_k - k:
-                m = m.next
-                count =count + 1
-            n.next = self.head
-            self.head = m.next
-            m.next = None
-        except:
-            print("check k value")
+    def merge_2_sorted_LL(self,head1,head2):
 
-# ============= Find intersection points of 2 linked lists ============
-    def intersection_of_LL(self,head1,head2):
-        n = head1
-        m = head2
-        count_1 = 1
-        count_2 = 1
-        while n.next != None:
-            count_1 =count_1 + 1
-            n = n.next
-        while m.next != None:
-            count_2 = count_2 + 1
-            m = m.next
-       
-        if count_1 > count_2:
-            n = head1
-            m = head2
-            count = count_1 - count_2
-            i = 0
-            while i < count:
-                n = n.next
-                i = i+1
-            j = 0
-            while j < count_2:
-                if n.data == m.data :
-                    print(f"{n.data}")
-                    break
-                else:
-                    n = n.next
-                    m = m.next
-                    j = j+1
-        else:
-            n = head1
-            m = head2
-            count = count_2 - count_1
-            i = 0
-            while i < count:
-                m = m.next
-                i = i+1
-            j = 0
-            while j < count_1:
+        ptr1 = head1
+        ptr2 = head2
+        ptr3 = Node(1) # Dummy Node 
+        ptr3.next = self.head
+        self.head = ptr3
+        n = self.head
 
-                if n.data == m.data :
-                    print(f"{n.data}")
-                    break
-                else:
-                    j = j + 1
-                    n = n.next
-                    m = m.next
+        while (ptr1 != None and ptr2 != None):
             
-                
-
+            if ptr1.data > ptr2.data:
+                n.next = ptr2
+                ptr2 = ptr2.next
+                n = n.next
+            else:
+                n.next = ptr1
+                ptr1 = ptr1.next
+                n = n.next
         
-         
+        while ptr1 != None:
+            n.next = ptr1
+            ptr1 = ptr1.next
+            n = n.next
+        
+        while ptr2 != None:
+            n.next = ptr2
+            ptr2 =ptr2.next
+            n = n.next
+        self.delete_start() # To delete ptr3 Node because it is dummy Node
+
+#========= Recursive method of merging ============                
+   
+    def merge_recursive(self,new_Node,head1,head2): # it is not completed.
+        
+        if head1 == None:
+            return head2
+        if head2 == None:
+            return head1
+        if head1.data  < head2.data:
+            new_Node.next = head1
+            self.merge_recursive(new_Node,head1.next,head2)
+        else:
+            new_Node.next = head2
+            self.merge_recursive(new_Node,head1,head2.next)
+        
+        
 
 
 
 LL1 = Linked_list()
 LL2 = Linked_list()
-LL = Linked_list()
-LL1.add_begin(5)
+LL1.add_begin(9)
 LL1.add_begin(7)
-LL1.add_end(18)
-LL1.add_end(9)
-LL1.add_inbetween(735,4)
+LL1.add_begin(5)
+LL1.add_begin(4)
 
-LL2.add_begin(2)
+LL2 = Linked_list()
+LL2.add_begin(6)
+LL2.add_begin(3)
 LL2.add_begin(1)
-LL2.add_end(3)
-LL2.add_begin(11)
-LL2.add_end(8)
-LL2.add_end(9)
-LL2.add_inbetween(735,6)
-
-# LL.search_in_LL(5)
-# LL.delete_start()
-# LL.delete_start()
-# LL.delete_end()
-# LL.delete_in_between(735)
-LL.intersection_of_LL(LL1.head,LL2.head)
 LL1.print_LL()
 print()
 LL2.print_LL()
-# print()
-# LL1.append_k_nodes_at_start()
-# LL1.print_LL()
+new_node = Node(1)
+# LL1.merge_recursive(new_node,LL1.head,LL2.head)
+LL1.merge_2_sorted_LL(LL1.head,LL2.head)
+print()
+LL1.print_LL()
