@@ -1,4 +1,4 @@
-# ========== Prefix Expression Evaluation Using stack =============
+# ========= Postfix Epression Evaluation using stack========
 
 #======= First we implement stack =====
 
@@ -48,51 +48,40 @@ class Stack():
         else:
             print(f"Your stack is {self.stack}")
 
-#========= Implementing prefix Expression =========
-    
-    def prefix_eva(self,list1): # it return evaluation of prefix expression. 
 
-        for i in range(len(list1)-1,-1,-1): # here we move from right to left in list
-            
-            if type(list1[i]) == int:
+# ========== Implementing postfix Expression
+    
+
+    def postfix_eva(self,list1):
+
+        for i in range(len(list1)):
+
+            if type(list1[i]) == int: #  here we move from left to right in list
                 self.push(list1[i])
             else:
                 operand1 = self.pop()
-                operand2 = self.pop()
-                
+                operand2 = self.pop() 
+
                 if list1[i] == "+":
-                    x = operand1 + operand2   
+                    x = operand2 + operand1   
                     self.push(x)
                 elif list1[i] == "-":
-                    y = operand1 - operand2
+                    y = operand2 - operand1
                     self.push(y)
                 elif list1[i] == "*":
-                    z = operand1 * operand2
+                    z = operand2 * operand1
                     self.push(z)
                 elif list1[i] == "/":
-                    q = operand1 / operand2
+                    q = operand2 / operand1
                     self.push(q)
-            
-
-        
 
 
-    
 
 
-stack1 = Stack(10)
-# stack1.push(10)
-# print(stack1.pop())
-list1 = ["-","+",7,"*",4,5,"+",2,0]
-list2 = ["*",2,3]
-list3 =["-","*",2,3,5]
-list4 = ["-","+","/",6,2,3,2]
-stack1.prefix_eva(list1)
-# print(stack1.isEmpty())
+stack1 = Stack(5)
+
+list1 = [4,6,"+",2,"/",5,"*",7,"+"]
+list2 = [6,2,"*",1,"-",6,2,"/","+"]
+stack1.postfix_eva(list2)
+print(stack1.isEmpty())
 stack1.print_stack()
-
-
-# list1 = [1,2,"3"]
-# for i in list1:
-#     if type(i) == int:
-#         print(i)
