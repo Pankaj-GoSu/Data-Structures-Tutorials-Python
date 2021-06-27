@@ -51,7 +51,7 @@ class Stack():
 # ========= Implementing Infix to Prefix =================
 
     def infix_to_prefix(self,list1):# it give us result from left to right but result is write this output in note book from right to left.
-
+        # otherwise we have to reverse our original list1 so that we get correct result.
         for i in range(len(list1)-1,-1,-1):
 
             if type(list1[i]) == int:
