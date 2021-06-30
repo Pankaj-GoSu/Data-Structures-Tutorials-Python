@@ -26,18 +26,50 @@ class Binary_tree:
         if self.data == None:
             self.data = data
             return
-        elif self.lchild == None:
+        if self.data >  data:
             if self.lchild:
                 self.lchild.insert(data)
             else:
                 self.lchild = Binary_tree(data)
-            
-        elif self.rchild == None:
+        else:    
             if self.rchild:
                 self.rchild.insert(data)
             else:
                 self.rchild = Binary_tree(data)
 
+    def preorder(self):
+        print(self.data,end = " ")
+        if self.lchild:
+            self.lchild.preorder()
+        if self.rchild:
+            self.rchild.preorder()
+
+    def inorder(self):
+        if self.lchild:
+            self.lchild.inorder()
+        print(self.data,end = " ")
+        if self.rchild:
+            self.rchild.inorder()
+    
+    def postorder(self):
+        if self.lchild:
+            self.lchild.postorder()
+        if self.rchild:
+            self.rchild.postorder()
+        print(self.data,end =" ")
+
 tree1 = Binary_tree(None)
 
 tree1.insert(10)
+tree1.insert(12)
+tree1.insert(13)
+
+tree1.insert(11)
+tree1.insert(14)
+tree1.insert(15)
+
+tree1.preorder()
+print()
+tree1.inorder()
+print()
+tree1.postorder()
