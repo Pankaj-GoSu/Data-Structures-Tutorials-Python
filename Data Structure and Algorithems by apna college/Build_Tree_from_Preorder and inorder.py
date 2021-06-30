@@ -48,7 +48,7 @@ idx = 0
 preorder = [1,2,4,3,5]
 inorder = [4,2,1,5,3]
 
-root = buildtree(preorder,inorder,0,5)
+root = buildtree(preorder,inorder,0,4)
 prInorder(root)
 print()
 postorder(root)
