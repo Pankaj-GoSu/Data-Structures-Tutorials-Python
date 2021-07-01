@@ -140,7 +140,7 @@ class Binary_Search_Tree:
 # for count how many nodes in BST
 def count(node):
     if node is None:
-        return 0
+        return 0 # here we do return 0 otherwise it return None and we can not add None to 1 or anything.
     return 1 + count(node.lchild) + count(node.rchild)
 
 root = Binary_Search_Tree(None)

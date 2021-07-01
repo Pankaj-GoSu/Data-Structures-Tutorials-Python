@@ -30,6 +30,7 @@ class Binary_Tree:
             self.lchild.preorder()
         if self.rchild:
             self.rchild.preorder()
+    
     def inorder(self):
         if self.lchild:
             self.lchild.inorder()
