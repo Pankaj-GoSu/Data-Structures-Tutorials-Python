@@ -82,6 +82,8 @@ tree1.insert(9)
 tree1.insert(4)
 tree1.insert(6)
 tree1.insert(1)
+
+
 arr = []
 # tree1.preorder()
 print(tree1.level_order())
