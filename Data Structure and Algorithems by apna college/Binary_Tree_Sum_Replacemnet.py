@@ -40,7 +40,7 @@ def sum_replacment(node):
     if node is None: # it is base condition.
         return
 
-    sum_replacment(node.lchild) # it execute recursively , after it execute we found tha swe get sum at left node of root node 
+    sum_replacment(node.lchild) # it execute recursively , after it execute we found that we get sum at left node of root node 
     sum_replacment(node.rchild) # it give total sum of right subtree in right node of root node.
     
     if node.lchild and node.rchild: # when both childerens are present
