@@ -46,7 +46,7 @@ class Doubly_linkedlist:
         else:
             n = self.head
             while n != None:
-                print(n.data)
+                print(f"{n.data}-->",end ="")
                 n = n.next
 class Node:
     def __init__(self,data):
@@ -78,5 +78,6 @@ for i in range(len(list_preorder)-1,-1,-1):
     DLL.insert(list_preorder[i])
 
 DLL.print_dll()
+print()
 print(DLL.head.next.data)
 print(DLL.head.next.prv) # so here we see left child of Binary tree is None as asked in our question.
