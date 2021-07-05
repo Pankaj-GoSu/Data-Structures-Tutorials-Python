@@ -1,4 +1,4 @@
-# ==== Python Program To implement Binary Searach Tree ============
+# ==== Python Program To implement Binary Search Tree ============
 
 """
 Every Node of binary search tree contains:
