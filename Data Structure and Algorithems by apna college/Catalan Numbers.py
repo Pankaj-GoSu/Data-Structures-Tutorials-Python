@@ -24,3 +24,16 @@ def nth_Catalan(n):
 
 for i in range(10):
     print(nth_Catalan(i) , end = " ")
+
+
+
+# ======= Application of Catalan Number ==========
+
+# ==> Possible BSTs
+
+'''
+n = 3
+n : nodes in the tree
+'''
+
+
