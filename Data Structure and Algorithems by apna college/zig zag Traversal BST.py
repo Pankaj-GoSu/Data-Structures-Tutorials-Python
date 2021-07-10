@@ -45,7 +45,7 @@ class Binary_Search_Tree:
 
         return result
 
-bst = Binary_Search_Tree(None)
+bst = Binary_Search_Tree(None)  
 
 bst.insert(10)
 bst.insert(8)
